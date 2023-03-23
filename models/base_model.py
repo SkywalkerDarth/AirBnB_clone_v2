@@ -68,4 +68,12 @@ class BaseModel:
                           (str(type(self)).split('.')[-1]).split('\'')[0]})
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
+        if '_sa_instance_state' in self.__dict__:
+            del self.__dict__['_sa_instance_state']
+            dictionary.update(self.__dict__)
         return dictionary
+
+    def delete(self):
+        from engine import file_storage
+        storage = file_storage.FileStorage()
+        storage.delete(self)

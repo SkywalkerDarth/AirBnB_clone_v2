@@ -4,9 +4,10 @@ from models.base_model import BaseModel
 from models import storage_type
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy.ext.declarative import decalarative_base
+Base = decalarative_base()
 
-
-class City(BaseModel):
+class City(BaseModel, Base):
     """ The city class, contains state ID and name """
     __tablename__ = 'cities'
     if storage_type == 'db':
