@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from sqlalchemy import create_engine
-from models.base_model import BaseModel, Base
+from ..models.base_model import BaseModel, Base
 from os import environ
 
 
@@ -24,3 +24,5 @@ class DBStorage:
         # drop tables if HBNB_ENV=test
         if environ.get("HBNB_ENV") == "test":
             Base.metadata.drop_all(self.__engine)
+
+        def all(self, cls=None):
