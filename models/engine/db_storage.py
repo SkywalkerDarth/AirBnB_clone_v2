@@ -24,7 +24,7 @@ class DBStorage:
     def __init__(self):
         """create the engine and drop tables if HBNB_ENV=test"""
         user = environ.get("HBNB_MYSQL_USER")
-        password =environ.get("HBNB_MYSQL_PWD")
+        password = environ.get("HBNB_MYSQL_PWD")
         host = environ.get("HBNB_MYSQL_HOST", "localhost")
         db = environ.get("HBNB_MYSQL_DB")
 
