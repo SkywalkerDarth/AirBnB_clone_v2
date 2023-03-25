@@ -5,9 +5,9 @@ from datetime import datetime
 from sqlalchemy.ext.declarative import declarative_base
 from models import storage_type
 from sqlalchemy import Column, Integer, String, DATETIME
+from models import storage
 
 Base = declarative_base()
-
 
 class BaseModel:
     """A base class for hbnb model, All other classes will inherit from BaseModel
@@ -29,7 +29,7 @@ class BaseModel:
                         default=datetime.utcnow())
 
     def __init__(self, *args, **kwargs):
-        """Instatntiates a new model"""
+        """Instantiates a new model"""
         if not kwargs:
             from models import storage
             self.id = str(uuid.uuid4())
@@ -55,7 +55,6 @@ class BaseModel:
 
     def save(self):
         """Updates updated_at with current time when instance is changed"""
-        from models import storage
         self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
