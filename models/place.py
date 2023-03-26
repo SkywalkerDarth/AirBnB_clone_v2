@@ -24,7 +24,21 @@ if storage_type == 'db':
 
 
 class Place(BaseModel, Base):
-    """ A place to stay """
+    """ A place to stay 
+    Attributes:
+        city_id: city id
+        user_id: user identification
+        name: name of user
+        description: description
+        number_rooms: integer
+        number_bathroom: integer
+        max_guest: integer
+        price_by_night: integer
+        latitude: float
+        longitude: float
+        reviews: relationship
+        amenities: relationship
+    """
     __tablename__ = 'places'
     if storage_type == 'db':
         city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)

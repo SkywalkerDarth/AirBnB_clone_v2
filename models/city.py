@@ -7,7 +7,12 @@ from sqlalchemy.orm import relationship
 
 
 class City(BaseModel, Base):
-    """ The city class, contains state ID and name """
+    """ The city class, contains state ID and name 
+    Attributes:
+        name: name
+        state_id: state identification
+        places: places
+    """
     __tablename__ = 'cities'
     if storage_type == 'db':
         name = Column(String(128), nullable=False)

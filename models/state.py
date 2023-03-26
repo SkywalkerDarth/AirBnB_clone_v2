@@ -8,7 +8,11 @@ from sqlalchemy.orm import relationship
 
 
 class State(BaseModel, Base):
-    """ State class / table model"""
+    """ State class / table model
+    Attributes:
+        name: string
+        cities: relationship
+    """
     __tablename__ = 'states'
     if storage_type == 'db':
         name = Column(String(128), nullable=False)

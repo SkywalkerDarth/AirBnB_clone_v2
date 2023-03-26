@@ -7,7 +7,12 @@ from models import storage_type
 
 
 class Review(BaseModel, Base):
-    """ Review classto store review information """
+    """ Review classto store review information
+    Attributes:
+        text: string
+        place_id: string
+        user_id: string, not nullable
+    """
     __tablename__ = 'reviews'
     if storage_type == 'db':
         text = Column(String(1024), nullable=False)
