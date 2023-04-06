@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+''' A Fabric script to generate .tgz archive'''
 
 from fabric.api import local
 from datetime import datetime
 from time import strftime
 
-@task
+
 def do_pack():
     """ generates archive a .tgz archie """
 
