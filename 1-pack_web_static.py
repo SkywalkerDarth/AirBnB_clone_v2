@@ -3,8 +3,9 @@
 from fabric.api import local
 from datetime import datetime
 from time import strftime
+from fabrics.decorators import runs_once
 
-
+@runs_once
 def do_pack():
     """ generates archive a .tgz archie """
 
