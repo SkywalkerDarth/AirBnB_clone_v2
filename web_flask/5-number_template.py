@@ -28,6 +28,17 @@ def python_text(text='is_cool'):
     """inputed text, replace "_" with " " """
     return "Python {}".format(text.repace('_', ' '))
 
+@app.route('/number/<int:n>', strict_slashes=False)
+def number(n=None):
+    """Dynamic inputted integer"""
+    return "%d is a number" % n
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def first_template(n=None):
+    """Display HTML Page only if n is an integer"""
+    return render_template('5-number.html', n=n)
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
