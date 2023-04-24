@@ -8,7 +8,7 @@ from sqlalchemy.orm import relationship
 
 
 class State(BaseModel, Base):
-    """ State class / table model
+    """ State class
     Attributes:
         name: string
         cities: relationship

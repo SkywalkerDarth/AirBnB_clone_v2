@@ -69,9 +69,9 @@ class DBStorage:
                 self.__session.add(obj)
                 self.__session.flush()
                 self.__session.refresh(obj)
-            except Exception as ex:
+            except Exception as exe:
                 self.__session.rollback()
-                raise ex
+                raise exe
 
     def save(self):
         '''commit all changes of the current db session'''
@@ -93,6 +93,6 @@ class DBStorage:
         self.__session = scoped_session(session_factory)()
 
     def close(self):
-        """closes the working SQLAlchemy session"""
+        """closes SQLAlchemy session"""
         self.__session.close()
 
